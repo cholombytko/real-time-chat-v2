@@ -1,0 +1,25 @@
+.chat-block {
+	width: 20%; /* or a fixed width like 300px */
+  max-width: 20%; /* Ensures it doesn't grow too large on wider screens */
+  padding: 10px;
+  margin: 5px;
+	background-color: rgb(95, 111, 112);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better visual separation */
+  border-radius: 5px; 
+}
+
+.chat-block:hover {
+	background-color: #f0f0f0;
+}
+
+.chat-block h4 {
+	margin: 0;
+	color: white;
+	font-size: 16px;
+}
+
+.chat-block p {
+	margin: 5px 0 0;
+	color: #cfcfcf;
+	font-size: 14px;
+}

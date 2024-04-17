@@ -1,0 +1,37 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: fit-content; /* Full viewport height */
+  font-family: Helvetica, sans-serif;
+	color: white;
+}
+
+.form {
+  background-color: #4e5462;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+	border: 2px white;
+	background: #ffffff;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #98b300; /* Highlight focus with a different border color */
+}
+
+h3 {
+  color: #ff0000;
+  margin-top: 20px;
+}

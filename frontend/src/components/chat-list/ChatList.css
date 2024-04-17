@@ -1,0 +1,9 @@
+.chat-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+h1 {
+	color: white
+}

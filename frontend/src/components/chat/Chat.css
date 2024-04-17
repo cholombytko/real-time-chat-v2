@@ -1,0 +1,49 @@
+.Chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Ensures the message form stays at the bottom */
+  height: 80vh; /* Adjust based on your application's layout */
+  max-width: 1000px;
+  margin: auto;
+  border: 1px solid #ccc; /* Optional: for better visibility */
+  background-color: rgb(6, 7, 44); /* Optional: background color */
+  outline: none; /* Removing the outline */
+}
+
+.messages-container {
+  overflow-y: auto;
+  padding: 10px;
+  flex-grow: 1; /* Takes up all available space */
+}
+
+.message-right, .message-left {
+  display: flex;
+  margin-bottom: 5px; /* Space between messages */
+}
+
+.message-left {
+	justify-content: left;
+}
+
+.message-right {
+	justify-content: right;
+}
+
+.input-form {
+  display: flex;
+  padding: 10px;
+  background-color: #f4f4f4; /* Slight grey background for the form area */
+}
+
+.input-field {
+  flex-grow: 1; /* Allows the input field to grow and fill the space */
+  margin-right: 10px; /* Spacing between input field and button */
+}
+
+.input-button {
+  padding: 8px 16px;
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
