@@ -1,42 +1,99 @@
-.message-block-own, .message-block-not-own {
-	width: 20%; /* Reduced width */
-	max-width: 50%;
-	padding: 1px; /* Reduced padding for a more compact look */
-	color: white;
-	font-size: 16px; /* Adjusted font size for readability */
-	border-radius: 15px;
-	background-color: rgb(54, 36, 191);
-	word-wrap: break-word; /* Ensure text does not overflow */
+.message-container {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  max-width: 100%;
 }
 
-.message-block-not-own {
-	background-color: rgb(37, 35, 55);
+.container-own {
+  justify-content: flex-end;
 }
 
-.username {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: 8px; /* Space between username and online/offline badge */
-	margin-bottom: 0;
+.container-not-own {
+  justify-content: flex-start;
 }
 
-.username h4 {
-	margin-right: 5px; /* Space between online/offline badge and username */
-	font-size: 16px; /* Ensure consistent font size */
+.initials-circle {
+  width: 30px;
+  height: 30px;
+  background-color: #007BFF;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 10px;
 }
 
-.message-text {
-	margin-top: 0; /* Eliminated top margin to bring message closer */
-	font-size: 16px; /* Smaller font size for message text */
-	overflow-wrap: break-word;  /* Ensures text wraps within the block */
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  outline: 2px solid white;
 }
 
 .online {
-	color: green
+  background-color: green;
 }
 
 .offline {
-	color: red
+  background-color: red;
+}
+
+.message-text {
+  font-size: 20px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: left;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 5px;
+  background-color: #f0f0f0;
+  max-width: 80%;
+}
+
+.own {
+  background-color: #007BFF;
+  color: white;
+}
+
+.not-own {
+  background-color: antiquewhite;
+  color: black;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .initials-circle {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .message-text {
+    font-size: 16px;
+    max-width: 75%;
+    padding: 8px;
+  }
+
+  .message-container {
+    margin: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .message-text {
+    max-width: 70%;
+  }
+
+  .message-container {
+    margin: 20px
+  }
 }

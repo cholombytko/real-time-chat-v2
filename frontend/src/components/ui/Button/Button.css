@@ -8,6 +8,7 @@ button {
   cursor: pointer;
   border-radius: 4px;
   transition: opacity 0.3s;
+  border-radius: 10px;
 }
 
 .button:hover {

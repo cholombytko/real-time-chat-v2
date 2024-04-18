@@ -3,9 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: fit-content; /* Full viewport height */
+  min-height: 50vh; /* Ensure it covers full height of the viewport */
   font-family: Helvetica, sans-serif;
-	color: white;
+  color: white;
 }
 
 .form {
@@ -13,18 +13,20 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 300px;
+  width: 90%; /* Start with a responsive width */
+  max-width: 300px; /* Maximum width to maintain form structure */
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 input[type="text"] {
   font-size: 16px;
   padding: 10px;
   margin-bottom: 20px;
-	border: 2px white;
-	background: #ffffff;
-  transition: border-color 0.3s;
+  border: 2px solid white; /* Ensure the border is visible */
+  background: #ffffff;
+  transition: border-color 0.3s; /* Full width to adapt to parent container size */
 }
 
 input[type="text"]:focus {
@@ -34,4 +36,27 @@ input[type="text"]:focus {
 h3 {
   color: #ff0000;
   margin-top: 20px;
+  text-align: center; /* Center align the error message or title */
+}
+
+/* Responsive adjustments for tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .form {
+    padding: 25px; /* Slightly larger padding for better spacing */
+  }
+
+  input[type="text"] {
+    font-size: 18px; /* Larger font size for better readability */
+  }
+}
+
+/* Responsive adjustments for desktops and larger devices */
+@media (min-width: 769px) {
+  .form {
+    max-width: 350px; /* Slightly wider form for larger screens */
+  }
+
+  input[type="text"] {
+    font-size: 20px; /* Increase font size to match larger form */
+  }
 }

@@ -1,9 +1,31 @@
+/* Base styles */
 .chat-list {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
+  display: flex;
+  flex-direction: row; /* Default to row for larger screens */
+  justify-content: flex-start;
 }
 
 h1 {
-	color: white
+  color: white; /* Ensures h1 elements are white */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .chat-list {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: flex-start; /* Align items to the start of the container */
+  }
+}
+
+/* Further adjustments for mobile screens */
+@media (max-width: 480px) {
+  .chat-list {
+    width: 100%; /* Use full width for very small screens */
+    padding: 0 10px; /* Add padding for better readability */
+  }
+
+  h1 {
+    font-size: 20px; /* Reduce font size for smaller screens */
+    margin-bottom: 10px; /* Add some bottom margin for separation */
+  }
 }

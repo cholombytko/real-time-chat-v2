@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { io } from "socket.io-client";
 import MessageBlock from "../ui/MessageBlock/MessageBlock";
+import Button from "../ui/Button/Button";
 import './Chat.css'
 
 const Chat = () => {
@@ -86,32 +87,42 @@ const Chat = () => {
 		}
   };
 
+	const returnToChatsHandler = (e) => {
+		e.preventDefault();
+		navigate('/chats');
+	}
+
   return (
-		<div className="Chat">
-      <div className="messages-container">
-        {chat.map((msg) => (
-          <div className={username === msg.sender_username ? "message-right" : "message-left"} key={msg.id}>
-            <MessageBlock
-              sender_username={msg.sender_username}
-              message={msg.message}
-              online={onlineUsers.includes(msg.sender_username)} // Assuming all users are online for simplicity
-            />
-          </div>
-        ))}
-        <div ref={messagesEndRef} /> {/* Invisible div for auto-scrolling */}
-      </div>
-      <form className="input-form" onSubmit={sendMessage}>
-        <input
-          className="input-field"
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type a message..."
-          required
-        />
-        <button className="input-button" type="submit">Send</button>
-      </form>
-    </div>
+		<div className="Chat-window">
+			<Button className="chats-button" onClick={returnToChatsHandler}>Return to chats</Button>
+			<div className="Chat-box">
+				<div className="messages-container">
+					{chat.map((msg) => (
+						<div className="message-block">
+							<div className={username === msg.sender_username ? "message-right" : "message-left"} key={msg.id}>
+								<MessageBlock
+									sender_username={msg.sender_username}
+									message={msg.message}
+									online={onlineUsers.includes(msg.sender_username)}
+								/>
+							</div>
+						</div>
+					))}
+					<div ref={messagesEndRef} /> {/* Invisible div for auto-scrolling */}
+				</div>
+				<form className="input-form" onSubmit={sendMessage}>
+					<input
+						className="input-field"
+						type="text"
+						value={message}
+						onChange={(e) => setMessage(e.target.value)}
+						placeholder="Type a message..."
+						required
+					/>
+					<button className="input-button" type="submit">Send</button>
+				</form>
+			</div>
+		</div>
   );
 }
  

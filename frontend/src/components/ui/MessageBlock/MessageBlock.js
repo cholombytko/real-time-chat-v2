@@ -1,21 +1,29 @@
-import './MessageBlock.css';
+import React from 'react';
+import './MessageBlock.css'; // Ensure CSS is imported
 
 const MessageBlock = ({ sender_username, message, online }) => {
 	const username = localStorage.getItem('username');
-	const base = 'message-block';
-	const className = (username === sender_username ? `${base}-own` : `${base}-not-own`)
+	const className = (username === sender_username ? `own` : `not-own`);
+
+	const getInitials = (name) => {
+		return name.split(' ')
+			.map(word => word[0])
+			.join('')
+			.substring(0, 2)
+			.toUpperCase();
+	};
 
 	return (
-		<div className={className}>
-			<div className='username'>
-				<h4 className={online ? 'online' : 'offline'}>{online ? 'online' : 'offline'}</h4>
-				<h4>{sender_username}</h4>
+		<div className={`message-container container-${className}`}>
+			<div className="initials-circle">
+				{getInitials(sender_username)}
+				<span className={`status-indicator ${online ? 'online' : 'offline'}`}></span>
 			</div>
-			<div className='message-text'>
-				<h4>{message}</h4>
+			<div className={`message-text ${className}`}>
+				<p>{message}</p>
 			</div>
 		</div>
 	);
-}
- 
+};
+
 export default MessageBlock;

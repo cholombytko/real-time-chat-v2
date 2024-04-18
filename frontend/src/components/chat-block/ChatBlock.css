@@ -1,25 +1,47 @@
 .chat-block {
-	width: 20%; /* or a fixed width like 300px */
-  max-width: 20%; /* Ensures it doesn't grow too large on wider screens */
+  width: 90%; /* Adjust to a percentage for smaller screens */
+  max-width: 300px; /* Limit maximum width */
   padding: 10px;
-  margin: 5px;
-	background-color: rgb(95, 111, 112);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better visual separation */
+  margin: 5px auto; /* Center blocks for better appearance on mobile */
+  background-color: rgb(95, 111, 112);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px; 
+  overflow: hidden; /* Ensures no overflow out of the block */
 }
 
 .chat-block:hover {
-	background-color: #f0f0f0;
+  background-color: #f0f0f0; /* Hover effect */
+}
+
+.chat-block h4, .chat-block p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 10px;
 }
 
 .chat-block h4 {
-	margin: 0;
-	color: white;
-	font-size: 16px;
+  color: white;
+  font-size: 16px;
 }
 
 .chat-block p {
-	margin: 5px 0 0;
-	color: #cfcfcf;
-	font-size: 14px;
+  color: #cfcfcf;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .chat-block {
+    width: 45%; 
+    margin: 5px;
+  }
+}
+
+/* Adjustments for larger desktop screens */
+@media (min-width: 768px) {
+  .chat-block {
+    width: 20%; /* Restores original width for desktops */
+    margin: 5px 2%; /* Adds some side margin for spacing between blocks */
+  }
 }

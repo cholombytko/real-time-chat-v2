@@ -2,12 +2,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import ChatBlock from "../chat-block/ChatBlock";
 import './ChatList.css'
-import MessageBlock from "../ui/MessageBlock/MessageBlock";
+import { useNavigate } from "react-router-dom";
 
 const CHATS_ENDPOINT = 'http://localhost:4000/api/chats'
 
 const ChatList = () => {
 	const [chats, setChats] = useState([]);
+	const navigate = useNavigate();
 
 	console.log(chats);
 
@@ -23,6 +24,7 @@ const ChatList = () => {
 			setChats(response.data);
 		} catch(e) {
 			console.error(e);
+			navigate('/');
 		}
 	}
 

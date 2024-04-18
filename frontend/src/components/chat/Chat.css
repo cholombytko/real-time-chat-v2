@@ -1,49 +1,101 @@
-.Chat {
+.Chat-box {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Ensures the message form stays at the bottom */
-  height: 80vh; /* Adjust based on your application's layout */
-  max-width: 1000px;
+  justify-content: flex-end;
+  height: 75vh;
+  max-width: 100%;
   margin: auto;
-  border: 1px solid #ccc; /* Optional: for better visibility */
-  background-color: rgb(6, 7, 44); /* Optional: background color */
-  outline: none; /* Removing the outline */
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  outline: none;
+  margin-top: 10px;
 }
 
 .messages-container {
   overflow-y: auto;
-  padding: 10px;
-  flex-grow: 1; /* Takes up all available space */
+  flex-grow: 1;
+  scrollbar-width: none;
 }
 
-.message-right, .message-left {
-  display: flex;
-  margin-bottom: 5px; /* Space between messages */
+.messages-container::-webkit-scrollbar {
+  display: none;
+}
+
+.message-block {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 10px;
 }
 
 .message-left {
-	justify-content: left;
+  grid-column: 1;
 }
 
 .message-right {
-	justify-content: right;
+  grid-column: 2;
 }
 
 .input-form {
   display: flex;
+  flex-direction: row;
   padding: 10px;
-  background-color: #f4f4f4; /* Slight grey background for the form area */
+  padding-bottom: 0px;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  align-items: center;
 }
 
 .input-field {
-  flex-grow: 1; /* Allows the input field to grow and fill the space */
-  margin-right: 10px; /* Spacing between input field and button */
+  flex-grow: 1;
+  margin-right: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.chats-button {
+  padding-bottom: 10px;
 }
 
 .input-button {
-  padding: 8px 16px;
+  display: flex;
+  align-items: center;
   background-color: #007BFF;
   border: none;
   color: white;
   cursor: pointer;
+  height: 48px;
+  margin-bottom: 10px;
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 768px) {
+  .Chat-box {
+    height: 90vh; /* More screen usage on smaller devices */
+    padding: 5px; /* Reduced padding for more space efficiency */
+  }
+
+  .messages-container {
+    padding: 5px; /* Smaller padding */
+  }
+
+  .input-form {
+    padding: 5px; /* Smaller padding */
+  }
+
+  .input-field {
+    font-size: 14px; /* Smaller font size for better usability */
+  }
+
+  .input-button {
+    padding: 6px 12px; /* Smaller button */
+    font-size: 14px; /* Smaller text on button */
+  }
+}
+
+/* Further adjustments for larger desktop screens */
+@media (min-width: 1024px) {
+  .Chat-box {
+    max-width: 1000px; /* Limited max width for large screens */
+  }
 }
