@@ -1,16 +1,16 @@
 .chat-block {
-  width: 90%; /* Adjust to a percentage for smaller screens */
-  max-width: 300px; /* Limit maximum width */
+  width: 80%;
+  max-width: 250px;
   padding: 10px;
-  margin: 5px auto; /* Center blocks for better appearance on mobile */
+  margin: 5px auto;
   background-color: rgb(95, 111, 112);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px; 
-  overflow: hidden; /* Ensures no overflow out of the block */
+  overflow: hidden;
 }
 
 .chat-block:hover {
-  background-color: #f0f0f0; /* Hover effect */
+  background-color: #f0f0f0;
 }
 
 .chat-block h4, .chat-block p {
@@ -41,7 +41,7 @@
 /* Adjustments for larger desktop screens */
 @media (min-width: 768px) {
   .chat-block {
-    width: 20%; /* Restores original width for desktops */
-    margin: 5px 2%; /* Adds some side margin for spacing between blocks */
+    width: 20%; 
+    margin: 5px 2%;
   }
 }

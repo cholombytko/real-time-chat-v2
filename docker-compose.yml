@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  frontend1:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:4000
+
+  frontend2:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:4000
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - PORT=4000
+      - HOST=db
+      - DB_PORT=5432
+      - USERNAME=postgres
+      - PASSWORD=test_password123
+      - DB_NAME=real-time-chat
+      - JWT_SECRET=test_jwt
+      - DATABASE_URL=postgres://postgres:test_password123@db:5432/real-time-chat
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=real-time-chat
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=test_password123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

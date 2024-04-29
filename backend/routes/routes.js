@@ -8,6 +8,7 @@ const router = express.Router();
 router.post('/auth/login', auth.login);
 router.get('/chats', authenticateToken, chats.get);
 router.post('/chats', authenticateToken, chats.create);
+router.get('/chats/search', authenticateToken, chats.findByTitle);
 router.get('/messages/:chatId', authenticateToken, messages.getAllByChatId);
 router.post('/messages/:chatId', authenticateToken, messages.create);
 router.get('/messages/last/:chatId', authenticateToken, messages.getLastMessageByChatId);

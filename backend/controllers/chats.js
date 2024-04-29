@@ -29,3 +29,22 @@ exports.create =  async (req, res) => {
 		res.status(500).json({ message: "Failed to create chat", error: error.message });
 	}
 };
+
+exports.findByTitle = async (req, res) => {
+	const { title } = req.query;
+
+	if (!title) {
+		return res.status(400).json({ message: "Title query parameter is required" });
+	}
+
+	try {
+		const { rows } = await pool.query('SELECT id, title FROM chats WHERE title = $1', [title]);
+		if (rows.length === 0) {
+				return res.status(404).json({ message: "No chat found with the given title" });
+		}
+		res.json(rows);
+	} catch (err) {
+		console.error('Error searching for chat by title:', err);
+		res.status(500).send('Server error');
+	}
+};

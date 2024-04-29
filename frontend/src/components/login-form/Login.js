@@ -44,7 +44,7 @@ const LoginForm = () => {
 				/>
         <Button type='submit'>Login</Button>
       </form>
-			<h3>{isFailed ? 'Login Failed. Try Again!' : ''}</h3>
+			<h3>{isFailed ? 'Login Failed. Try again!' : ''}</h3>
 		</div>
 	);
 }
